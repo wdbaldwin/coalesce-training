@@ -1,0 +1,95 @@
+steps:
+  STG_SUBCATEGORY-345:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8205
+              stepCounter: "345"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_SUBCATEGORY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8171
+                    stepCounter: "342"
+                transform: ""
+          - columnReference:
+              columnCounter: 8206
+              stepCounter: "345"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PRODUCT_CATEGORY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8172
+                    stepCounter: "342"
+                transform: ""
+          - columnReference:
+              columnCounter: 8207
+              stepCounter: "345"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SUB_CATEGORY_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8173
+                    stepCounter: "342"
+                transform: ""
+          - columnReference:
+              columnCounter: 8209
+              stepCounter: "345"
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIED_DATE_SUBCATEGORY
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8175
+                    stepCounter: "342"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: PRODUCTION_PRODUCT_SUBCATEGORY
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'PRODUCTION_PRODUCT_SUBCATEGORY') }} "PRODUCTION_PRODUCT_SUBCATEGORY"
+            name: STG_SUBCATEGORY
+            noLinkRefs: []
+      name: STG_SUBCATEGORY
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "345"
