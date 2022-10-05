@@ -9,6 +9,195 @@ macros: {}
 packages: {}
 projects: {}
 stepTypes:
+  StepType-12:
+    id: "12"
+    isDisabled: false
+    metadata:
+      defaultStorageLocation: null
+      error: null
+      nodeMetadataSpec: |
+        capitalized: Stage Date
+        short: DATE
+        plural: Dates
+        tagColor: 'black'
+
+        config:
+        - groupName: Date Options
+          items:
+          - displayName: Starting Date
+            attributeName: startingDate
+            type: textBox
+            syntax: sql
+            default: 'DATEADD(DAY, -730, CURRENT_DATE)'
+
+          - displayName: Number of Days to Generate
+            attributeName: daysToGenerate
+            type: textBox
+            default: '2000'
+
+          - displayName: Generated Date Column Name
+            attributeName: dateColumnName
+            type: textBox
+            default: '"DATE_COL"'
+
+        - groupName: Additional Options
+          items:
+          - type: materializationSelector
+            default: table
+            options:
+            - table
+            isRequired: true
+
+          - displayName: Truncate Before
+            attributeName: truncateBefore
+            type: toggleButton
+            default: true
+            isRequired: true
+
+          - displayName: Pre-SQL
+            attributeName: preSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+          - displayName: Post-SQL
+            attributeName: postSQL
+            type: textBox
+            syntax: sql
+            isRequired: false
+
+        systemColumns:
+        - displayName: DATE_KEY
+          transform: '{{ config.dateColumnName }}'
+          dataType: 'DATE'
+          placement: beginning
+          attributeName: isDate
+
+        - displayName: 'YEAR'
+          transform: 'YEAR({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isYear
+
+        - displayName: 'MONTH'
+          transform: 'MONTH({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isMonth
+
+        - displayName: 'MONTH_NAME'
+          transform: 'MONTHNAME({{ config.dateColumnName }})'
+          dataType: CHAR(3)
+          placement: beginning
+          attributeName: isMonthName
+
+        - displayName: 'DAY_OF_MONTH'
+          transform: 'DAY({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isDayOfMonth
+
+        - displayName: 'DAY_OF_WEEK'
+          transform: 'DAYOFWEEK({{ config.dateColumnName }})'
+          dataType: VARCHAR(9)
+          placement: beginning
+          attributeName: isDayOfWeek
+
+        - displayName: 'WEEK_OF_YEAR'
+          transform: 'WEEKOFYEAR({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isWeekOfYear
+
+        - displayName: 'DAY_OF_YEAR'
+          transform: 'DAYOFYEAR({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isYearColumn
+
+        - displayName: 'QUARTER'
+          transform: 'QUARTER({{ config.dateColumnName }})'
+          dataType: SMALLINT
+          placement: beginning
+          attributeName: isQUARTERColumn
+
+        - displayName: 'WEEK_LAST_DAY_FLAG'
+          transform: 'CASE WHEN LAST_DAY({{ config.dateColumnName }}, WEEK) = {{ config.dateColumnName }} THEN 1 ELSE 0 END'
+          dataType: INT
+          placement: beginning
+          attributeName: isWEEKLastColumn
+
+        - displayName: 'MONTH_LAST_DAY_FLAG'
+          transform: 'CASE WHEN LAST_DAY({{ config.dateColumnName }}, MONTH) = {{ config.dateColumnName }} THEN 1 ELSE 0 END'
+          dataType: INT
+          placement: beginning
+          attributeName: isMONTHLastColumn
+
+        - displayName: 'QUARTER_LAST_DAY_FLAG'
+          transform: 'CASE WHEN LAST_DAY({{ config.dateColumnName }}, QUARTER) = {{ config.dateColumnName }} THEN 1 ELSE 0 END'
+          dataType: INT
+          placement: beginning
+          attributeName: isQUARTERLastColumn
+      templates:
+        create:
+          templateString: |-
+            {{ stage('Create Stage Table') }}
+
+            	CREATE OR REPLACE TABLE {{ ref_no_link(node.location.name, node.name) }}
+            	(
+            		{% for col in columns %}
+            			"{{ col.name }}" {{ col.dataType }}
+            			{%- if not col.nullable %} NOT NULL
+            				{%- if col.defaultValue | length > 0 %} DEFAULT {{ col.defaultValue }}{% endif %}
+            			{% endif %}
+            			{%- if col.description | length > 0 %} COMMENT '{{ col.description }}'{% endif %}
+            			{%- if not loop.last -%}, {% endif %}
+            		{% endfor %}
+            	)
+            	{%- if node.description | length > 0 %} COMMENT = '{{ node.description }}'{% endif %}
+        run:
+          templateString: |-
+            {% if config.preSQL %}
+                {{ stage('Pre-SQL') }}
+                {{ config.preSQL }}
+            {% endif %}
+
+
+            {% if config.truncateBefore %}
+                {{ stage('Truncate Stage Table') }}
+                TRUNCATE IF EXISTS {{ ref_no_link(node.location.name, node.name) }}
+            {% endif %}
+
+
+            {{ stage('Insert ' + sources[0].name | string ) }}
+
+                INSERT INTO {{ ref_no_link(node.location.name, node.name) }}
+                (
+                    {% for col in sources[0].columns %}
+                        "{{ col.name }}"
+                        {%- if not loop.last -%},{% endif %}
+                    {% endfor %}
+                )
+
+                WITH CTE_DATE_GENERATOR AS (
+                    SELECT DATEADD(DAY, SEQ4(), {{config.startingDate }}) AS {{ config.dateColumnName }}
+                    FROM TABLE(GENERATOR(ROWCOUNT=>{{ config.daysToGenerate }}))
+                )
+
+                SELECT
+                {% for col in sources[0].columns %}
+                    {{ get_source_transform(col) }} AS "{{ col.name }}"
+                    {%- if not loop.last -%}, {% endif %}
+                {% endfor %}
+
+                FROM CTE_DATE_GENERATOR
+
+            {% if config.postSQL %}
+                {{ stage('Post-SQL') }}
+                {{ config.postSQL }}
+            {% endif %}
+    name: DATE_NODE
+    version: 1
   StepType-Dimension:
     id: Dimension
     isDisabled: false
@@ -1947,5 +2136,22 @@ stepTypes:
             {% endif %}
     name: Persistent Stage
     version: 1
-subgraphs: {}
+subgraphs:
+  Subgraph-12:
+    id: 12
+    name: TERRITORY
+    steps:
+      - "325"
+      - "326"
+      - "327"
+      - "328"
+      - "330"
+      - "331"
+  Subgraph-13:
+    id: 13
+    name: DATE
+    steps:
+      - "328"
+      - "330"
+      - "331"
 version: 1

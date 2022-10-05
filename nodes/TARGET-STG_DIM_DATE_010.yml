@@ -1,0 +1,207 @@
+steps:
+  STG_DIM_DATE_010-330:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8033
+              stepCounter: "330"
+            dataType: DATE
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: CALENDAR_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8009
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8034
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8010
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8035
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8011
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8036
+              stepCounter: "330"
+            dataType: CHAR(3)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MONTH_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8012
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8037
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAY_OF_MONTH
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8013
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8038
+              stepCounter: "330"
+            dataType: VARCHAR(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAY_OF_WEEK
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8014
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8039
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WEEK_OF_YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8015
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8040
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DAY_OF_YEAR
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8016
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8041
+              stepCounter: "330"
+            dataType: SMALLINT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUARTER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8017
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8042
+              stepCounter: "330"
+            dataType: INT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: WEEK_LAST_DAY_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8018
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8043
+              stepCounter: "330"
+            dataType: INT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MONTH_LAST_DAY_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8019
+                    stepCounter: "328"
+                transform: ""
+          - columnReference:
+              columnCounter: 8044
+              stepCounter: "330"
+            dataType: INT
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: QUARTER_LAST_DAY_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8020
+                    stepCounter: "328"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: DATE_NODE
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'DATE_NODE') }} "DATE_NODE"
+            name: STG_DIM_DATE_010
+            noLinkRefs: []
+      name: STG_DIM_DATE_010
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "330"
