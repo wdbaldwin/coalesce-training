@@ -1,0 +1,93 @@
+steps:
+  PERSON_EMAIL_ADDRESS-332:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      locationID: ""
+      locationName: SOURCE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8064
+              stepCounter: 332
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: BUSINESS_ENTITY_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8065
+              stepCounter: 332
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: EMAIL_ADDRESS_ID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8066
+              stepCounter: 332
+            config: {}
+            dataType: VARCHAR
+            defaultValue: ""
+            description: ""
+            name: EMAIL_ADDRESS
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8067
+              stepCounter: 332
+            config: {}
+            dataType: VARCHAR
+            defaultValue: ""
+            description: ""
+            name: ROW_GUID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8068
+              stepCounter: 332
+            config: {}
+            dataType: TIMESTAMP_NTZ(9)
+            defaultValue: ""
+            description: ""
+            name: MODIFIED_DATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SOURCE', 'PERSON_EMAIL_ADDRESS') }}
+      name: PERSON_EMAIL_ADDRESS
+      schema: ""
+      sqlType: Source
+      table: PERSON_EMAIL_ADDRESS
+      type: sourceInput
+    stepCounter: "332"

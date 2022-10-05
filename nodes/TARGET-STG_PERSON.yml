@@ -1,0 +1,207 @@
+steps:
+  STG_PERSON-335:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 8086
+              stepCounter: "335"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: BUSINESS_ENTITY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8069
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8087
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: PERSON_TYPE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8070
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8088
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: NAME_STYLE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8071
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8089
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: TITLE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8072
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8090
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: FIRST_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8073
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8091
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MIDDLE_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8074
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8092
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: LAST_NAME
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8075
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8093
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: SUFFIX
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8076
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8094
+              stepCounter: "335"
+            dataType: NUMBER(38,0)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: EMAIL_PROMOTION
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8077
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8095
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: ADDITIONAL_CONTACT_INFO
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8078
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8096
+              stepCounter: "335"
+            dataType: VARCHAR
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: DEMOGRAPHICS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8079
+                    stepCounter: "333"
+                transform: ""
+          - columnReference:
+              columnCounter: 8098
+              stepCounter: "335"
+            dataType: TIMESTAMP_NTZ(9)
+            description: ""
+            hashColumns: []
+            hashDetails: null
+            name: MODIFIED_DATE_PERSON
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8081
+                    stepCounter: "333"
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: PERSON_PERSON
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'PERSON_PERSON') }} "PERSON_PERSON"
+            name: STG_PERSON
+            noLinkRefs: []
+      name: STG_PERSON
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "335"
