@@ -1,0 +1,447 @@
+steps:
+  STG_FACT_SALES_010_ORDER_HEADER-350:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      dependencies: []
+      deployEnabled: true
+      description: ""
+      isDataVault: false
+      isMultisource: false
+      locationID: ""
+      locationName: TARGET
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8290
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: ACCOUNT_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"ACCOUNT_NUMBER\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8291
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: BILL_TO_ADDRESS_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"BILL_TO_ADDRESS_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8292
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: CREDIT_CARD_APPROVAL_CODE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"CREDIT_CARD_APPROVAL_CODE\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8293
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: CREDIT_CARD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"CREDIT_CARD_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8294
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: CUSTOMER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"CUSTOMER_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8295
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: DUE_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"DUE_DATE\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8296
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: FREIGHT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"FREIGHT\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8297
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: MODIFIED_DATE_SALES_ORDER_HEADER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"MODIFIED_DATE\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8298
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: ONLINE_ORDER_FLAG
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"ONLINE_ORDER_FLAG\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8299
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: ORDER_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"ORDER_DATE\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8300
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: PURCHASE_ORDER_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"PURCHASE_ORDER_NUMBER\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8301
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: REVISION_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"REVISION_NUMBER\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8302
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: ROW_GUID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"ROW_GUID\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8303
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: SALES_ORDER_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SALES_ORDER_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8304
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: SALES_ORDER_NUMBER
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SALES_ORDER_NUMBER\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8305
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: SALES_PERSON_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SALES_PERSON_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8306
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: SHIP_DATE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SHIP_DATE\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8307
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: SHIP_METHOD_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SHIP_METHOD_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8308
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: SHIP_TO_ADDRESS_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SHIP_TO_ADDRESS_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8309
+              stepCounter: "350"
+            config: {}
+            dataType: STRING
+            description: ""
+            name: STATUS
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"STATUS\"::STRING"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8310
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: SUB_TOTAL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"SUB_TOTAL\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8311
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: TAX_AMT
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"TAX_AMT\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8312
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: TERRITORY_ID
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"TERRITORY_ID\"::NUMBER"
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8313
+              stepCounter: "350"
+            config: {}
+            dataType: NUMBER
+            description: ""
+            name: TOTAL_DUE
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 8288
+                    stepCounter: "349"
+                transform: "\"Output\":\"TOTAL_DUE\"::NUMBER"
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: SOURCE
+                nodeName: SALES_ORDER_HEADER_JSON
+            join:
+              joinCondition: FROM {{ ref('SOURCE', 'SALES_ORDER_HEADER_JSON') }} "SALES_ORDER_HEADER_JSON"
+            name: STG_FACT_SALES_010_ORDER_HEADER
+            noLinkRefs: []
+      name: STG_FACT_SALES_010_ORDER_HEADER
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: "350"
